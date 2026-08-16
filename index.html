@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Luna Pizza</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff8f0;
+      color: #222;
+    }
+
+    header {
+      background: #d62828;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #ffcf70, #fff8f0);
+    }
+
+    .hero h2 {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #d62828;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 70px 8%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 35px;
+      margin-bottom: 35px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d62828;
+    }
+
+    .contact {
+      background: #222;
+      color: white;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero h2 {
+        font-size: 40px;
+      }
+
+      .menu {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🍕 Luna Pizza</h1>
+
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Fresh Pizza. Happy People.</h2>
+
+    <p>
+      Delicious, freshly baked pizza made with quality ingredients
+      and served with love.
+    </p>
+
+    <a href="#menu" class="button">View Our Menu</a>
+  </section>
+
+  <section id="menu">
+    <h2>Our Menu</h2>
+
+    <div class="menu">
+
+      <div class="card">
+        <h3>Margherita</h3>
+        <p>Fresh tomato, mozzarella and basil.</p>
+        <div class="price">₹299</div>
+      </div>
+
+      <div class="card">
+        <h3>Pepperoni</h3>
+        <p>Classic pepperoni with melted cheese.</p>
+        <div class="price">₹399</div>
+      </div>
+
+      <div class="card">
+        <h3>Veggie Special</h3>
+        <p>Fresh vegetables, cheese and our special sauce.</p>
+        <div class="price">₹349</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Luna Pizza</h2>
+
+    <p>
+      We make delicious pizzas using fresh ingredients,
+      homemade sauces and plenty of love.
+    </p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Visit Us</h2>
+
+    <p>📍 123 Main Street</p>
+    <p>📞 +91 98765 43210</p>
+    <p>🕐 Open every day: 11 AM – 10 PM</p>
+  </section>
+
+  <footer>
+    © 2026 Luna Pizza. All rights reserved.
+  </footer>
+
+</body>
+</html>
