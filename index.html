@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Luna Pizza</title>
+  <title>Luna Pizza | Fresh & Delicious</title>
 
   <style>
     * {
@@ -12,73 +12,104 @@
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #fff8f0;
+      background: #fffaf3;
       color: #222;
     }
 
     header {
-      background: #d62828;
-      color: white;
-      padding: 20px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 18px 7%;
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     }
 
-    header h1 {
-      font-size: 28px;
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #e63946;
     }
 
     nav a {
-      color: white;
+      color: #222;
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
+      margin-left: 25px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #e63946;
     }
 
     .hero {
-      min-height: 75vh;
+      min-height: 90vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 40px 20px;
-      background: linear-gradient(135deg, #ffcf70, #fff8f0);
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
     }
 
-    .hero h2 {
-      font-size: 55px;
-      margin-bottom: 15px;
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 80px);
+      margin-bottom: 20px;
     }
 
     .hero p {
-      font-size: 20px;
-      max-width: 600px;
-      margin-bottom: 25px;
+      font-size: 21px;
+      line-height: 1.6;
+      margin-bottom: 30px;
     }
 
     .button {
       display: inline-block;
-      background: #d62828;
+      padding: 15px 30px;
+      background: #e63946;
       color: white;
-      padding: 14px 28px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: #c92f3a;
     }
 
     section {
-      padding: 70px 8%;
+      padding: 80px 7%;
       text-align: center;
     }
 
-    section h2 {
-      font-size: 35px;
-      margin-bottom: 35px;
+    .section-title {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      color: #666;
+      margin-bottom: 45px;
     }
 
     .menu {
@@ -88,51 +119,110 @@
     }
 
     .card {
+      overflow: hidden;
       background: white;
-      padding: 30px 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 25px;
     }
 
     .card h3 {
-      font-size: 24px;
       margin-bottom: 10px;
+      font-size: 24px;
     }
 
     .card p {
-      margin-bottom: 10px;
-      color: #555;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 15px;
     }
 
     .price {
-      font-size: 20px;
+      color: #e63946;
+      font-size: 22px;
       font-weight: bold;
-      color: #d62828;
+    }
+
+    .about {
+      background: #222;
+      color: white;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .review {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .stars {
+      color: #f4b400;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .review p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
 
     .contact {
-      background: #222;
+      background: #e63946;
       color: white;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 18px;
     }
 
     footer {
       background: #111;
       color: #aaa;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       header {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
       }
 
-      .hero h2 {
-        font-size: 40px;
+      nav a {
+        margin: 0 8px;
       }
 
-      .menu {
+      .menu,
+      .reviews {
         grid-template-columns: 1fr;
       }
     }
@@ -142,67 +232,128 @@
 <body>
 
   <header>
-    <h1>🍕 Luna Pizza</h1>
+    <div class="logo">🍕 Luna <span>Pizza</span></div>
 
     <nav>
       <a href="#menu">Menu</a>
       <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Fresh Pizza. Happy People.</h2>
+    <div class="hero-content">
+      <h1>Pizza Made With Love</h1>
 
-    <p>
-      Delicious, freshly baked pizza made with quality ingredients
-      and served with love.
-    </p>
+      <p>
+        Fresh ingredients, crispy crust and delicious toppings.
+        Your perfect pizza is waiting.
+      </p>
 
-    <a href="#menu" class="button">View Our Menu</a>
+      <a href="#menu" class="button">Explore Our Menu</a>
+    </div>
   </section>
 
   <section id="menu">
-    <h2>Our Menu</h2>
+    <h2 class="section-title">Our Favorites</h2>
+    <p class="section-subtitle">
+      Freshly made and baked just for you.
+    </p>
 
     <div class="menu">
 
       <div class="card">
-        <h3>Margherita</h3>
-        <p>Fresh tomato, mozzarella and basil.</p>
-        <div class="price">₹299</div>
+        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80" alt="Margherita Pizza">
+
+        <div class="card-content">
+          <h3>Margherita</h3>
+          <p>Tomato sauce, mozzarella and fresh basil.</p>
+          <div class="price">₹299</div>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Pepperoni</h3>
-        <p>Classic pepperoni with melted cheese.</p>
-        <div class="price">₹399</div>
+        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=900&q=80" alt="Pepperoni Pizza">
+
+        <div class="card-content">
+          <h3>Pepperoni</h3>
+          <p>Loaded with pepperoni and melted cheese.</p>
+          <div class="price">₹399</div>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Veggie Special</h3>
-        <p>Fresh vegetables, cheese and our special sauce.</p>
-        <div class="price">₹349</div>
+        <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?auto=format&fit=crop&w=900&q=80" alt="Veggie Pizza">
+
+        <div class="card-content">
+          <h3>Veggie Special</h3>
+          <p>Fresh vegetables with our special pizza sauce.</p>
+          <div class="price">₹349</div>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <section id="about">
-    <h2>About Luna Pizza</h2>
+  <section id="about" class="about">
+    <h2 class="section-title">Why Luna Pizza?</h2>
 
     <p>
-      We make delicious pizzas using fresh ingredients,
-      homemade sauces and plenty of love.
+      At Luna Pizza, we believe great pizza starts with great ingredients.
+      Every pizza is freshly prepared, carefully baked and served hot.
+      Our goal is simple: delicious food and happy customers.
     </p>
   </section>
 
+  <section id="reviews">
+    <h2 class="section-title">What Customers Say</h2>
+
+    <p class="section-subtitle">
+      A few words from our happy customers.
+    </p>
+
+    <div class="reviews">
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>
+          "Amazing pizza! The crust was crispy and the toppings were fresh."
+        </p>
+        <strong>— Aisha</strong>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>
+          "One of the best pizzas I've had. Definitely coming back!"
+        </p>
+        <strong>— Rahul</strong>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>
+          "Great taste, friendly service and really good prices."
+        </p>
+        <strong>— Sara</strong>
+      </div>
+
+    </div>
+  </section>
+
   <section id="contact" class="contact">
-    <h2>Visit Us</h2>
+    <h2 class="section-title">Visit Luna Pizza</h2>
 
     <p>📍 123 Main Street</p>
     <p>📞 +91 98765 43210</p>
-    <p>🕐 Open every day: 11 AM – 10 PM</p>
+    <p>🕐 Open daily: 11 AM – 10 PM</p>
+
+    <br>
+
+    <a href="tel:+919876543210" class="button">
+      Call Now
+    </a>
   </section>
 
   <footer>
